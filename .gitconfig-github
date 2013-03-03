@@ -3,7 +3,7 @@
 	email = monk.albino@gmail.com
 [core]
 	autocrlf = true
-	safecrlf = true
+	safecrlf = warn
 [core]
 	repositoryformatversion = 0
 	filemode = false
@@ -13,12 +13,12 @@
 	ignorecase = true
 	hideDotFiles = dotGitOnly
 [alias]
-  co = checkout
-  ci = commit
-  df = diff
-  st = status --short
-  br = branch
-  hist = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph
-  histall = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph --all
-  type = cat-file -t
-  dump = cat-file -p
+	co = checkout
+	ci = commit
+	df = diff
+	st = status --short
+	br = branch
+	hist = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph
+	histall = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph --all
+	type = cat-file -t
+	dump = cat-file -p

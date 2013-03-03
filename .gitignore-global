@@ -36,3 +36,6 @@ Thumbs.db
 
 .idea
 *.xmind
+*.sublime-project
+*.sublime-workspace
+_*
