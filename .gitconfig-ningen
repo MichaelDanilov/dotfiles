@@ -18,7 +18,7 @@
 	df = diff
 	st = status --short
 	br = branch
-	hist = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph
+	hist = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph -n 10
 	histall = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph --all
 	type = cat-file -t
 	dump = cat-file -p
