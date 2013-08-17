@@ -3,7 +3,7 @@
 	email = michael@danilov.me
 [core]
 	autocrlf = true
-	safecrlf = true
+	safecrlf = warn
 [core]
 	repositoryformatversion = 0
 	filemode = false
