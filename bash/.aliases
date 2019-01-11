@@ -4,6 +4,10 @@ alias ...="cd ../.."
 alias -- -="cd -"
 alias cd~="cd ~"
 
+# Applications
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias smerge="/Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge"
+
 # Shortcuts
 alias dropbox="cd /Users/michael/Dropbox"
 alias yadisk="cd /Users/michael/Yandex.Disk.localized"
