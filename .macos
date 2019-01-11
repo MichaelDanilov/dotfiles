@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+# ~/.macos — https://mths.be/macos
+# Modified by Kent C. Dodds
+# Modified by Michael Danilov
+# Run without downloading:
+# curl https://raw.githubusercontent.com/MichaelDanilov/dotfiles/master/.macos | bash
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+###############################################################################
+# Michael's Customizations                                                    #
+###############################################################################
+
+echo "Hello $(whoami)! Let's get you set up."
+
+echo "installing ohmyz"
+# install ohmyz https://ohmyz.sh/
+$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+echo "installing homebrew"
+# install homebrew https://brew.sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+echo "brew installing stuff"
+# tree: really handy for listing out directories in text
+# bat: A cat(1) clone with syntax highlighting and Git integration.
+brew install git bash-completion tree bat
+
+echo "installing node (via nvm-install)"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+echo "node --version: $(node --version)"
+echo "npm --version: $(npm --version)"
+
+echo "installing apps with brew cask"
+brew cask install alfred google-chrome firefox bettertouchtool bartender visual-studio-code \
+1password virtualbox sublime-text vlc
+
+echo "cloning dotfiles and replace existed"
+rm ~/.{bashrc,bash_profile,bash_prompt,exports,aliases,functions,gitignore,zshrc,oh-my-zsh/themes/malbino.zsh-theme}
+git clone git@github.com:MichaelDanilov/dotfiles.git ~/dotfiles
+ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
+ln -s ~/dotfiles/bash/.bash_profile ~/.bash_profile
+ln -s ~/dotfiles/bash/.bash_prompt ~/.bash_prompt
+ln -s ~/dotfiles/bash/.exports ~/.exports
+ln -s ~/dotfiles/bash/.aliases ~/.aliases
+ln -s ~/dotfiles/bash/.functions ~/.functions
+ln -s ~/dotfiles/git/.gitignore ~/.gitignore
+ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/dotfiles/zsh/malbino.zsh-theme ~/.oh-my-zsh/themes/malbino.zsh-theme
