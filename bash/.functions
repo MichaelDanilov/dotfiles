@@ -61,16 +61,6 @@ function gz() {
 	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
 }
 
-# Syntax-highlight JSON strings or files
-# Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
-function json() {
-	if [ -t 0 ]; then # argument
-		python -mjson.tool <<< "$*" | pygmentize -l javascript;
-	else # pipe
-		python -mjson.tool | pygmentize -l javascript;
-	fi;
-}
-
 # Run `dig` and display the most useful info
 function digga() {
 	dig +nocmd "$1" any +multiline +noall +answer;
@@ -145,49 +135,7 @@ function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
-# Open for edit my config
-function config() {
-	case $1 in
-		bash )
-			case $2 in
-				aliase | aliases )
-					subl -add ~/.aliases
-					;;
-				profile )
-					subl -add ~/.bash_profile
-					;;
-				gitconfig )
-					subl -add ~/.gitconfig
-					;;
-				func | functions | * )
-					subl -add ~/.functions
-					;;
-			esac
-			;;
-		hosts )
-			subl -add /etc/hosts
-			;;
-		nginx )
-			case $2 in
-				global )
-					subl -add /usr/local/etc/nginx/nginx.conf
-					;;
-				local | * )
-					subl -add ~/Projects/nginx.conf
-					;;
-			esac
-			;;
-		php )
-			subl -add /usr/local/etc/php/5.6/php.ini
-			;;
-		* )
-			error dave
-			;;
-	esac
-}
-
 function pingtime() {
-	# ping $1 | awk -F'[ =]' 'NR>1{print system("echo $(date +%Y%m%d.%H%M%S)") $10}'
 	ping $1 | perl -nle 'print scalar(localtime), " | ", $_'
 }
 
