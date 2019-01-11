@@ -46,13 +46,24 @@ brew cask install alfred google-chrome firefox bettertouchtool bartender visual-
 1password virtualbox sublime-text vlc
 
 echo "cloning dotfiles and replace existed"
-rm ~/.{bashrc,bash_profile,bash_prompt,exports,aliases,functions,gitignore,zshrc,oh-my-zsh/themes/malbino.zsh-theme}
+# remove previous version
+rm ~/.{bashrc,bash_profile,bash_prompt,exports,exports_user,aliases,aliases_user,functions,\
+gitignore,zshrc,oh-my-zsh/themes/malbino.zsh-theme}
+
 git clone git@github.com:MichaelDanilov/dotfiles.git ~/dotfiles
+
+# Create files with user private data
+touch ~/dotfiles/bash/.exports_user
+touch ~/dotfiles/bash/.aliases_user
+
+# Link it to home directory
 ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
 ln -s ~/dotfiles/bash/.bash_profile ~/.bash_profile
 ln -s ~/dotfiles/bash/.bash_prompt ~/.bash_prompt
 ln -s ~/dotfiles/bash/.exports ~/.exports
+ln -s ~/dotfiles/bash/.exports_user ~/.exports_user
 ln -s ~/dotfiles/bash/.aliases ~/.aliases
+ln -s ~/dotfiles/bash/.aliases_user ~/.aliases_user
 ln -s ~/dotfiles/bash/.functions ~/.functions
 ln -s ~/dotfiles/git/.gitignore ~/.gitignore
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
