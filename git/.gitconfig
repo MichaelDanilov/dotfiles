@@ -1,0 +1,65 @@
+[user]
+  name = Michael Danilov
+  email = michael@danilov.me
+
+[credential]
+  helper = cache --timeout=3600
+
+[core]
+  autocrlf = false
+  safecrlf = false
+  repositoryformatversion = 0
+  filemode = false
+  bare = false
+  logallrefupdates = true
+  symlinks = true
+  ignorecase = true
+  hideDotFiles = dotGitOnly
+
+[alias]
+  co = checkout
+  cob = checkout -b
+  ci = commit
+  cia = commit --amend
+  cim = commit -m
+  fixup = commit -m "fixup"
+  df = diff
+  st = status --short
+  br = branch
+  hist = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph -n 10
+  histn = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph -n
+  histall = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph --all
+  type = cat-file -t
+  dump = cat-file -p
+  unstage = reset HEAD
+  unstash = stash pop
+  mff = merge --no-ff
+
+[color]
+  # Use colors in Git commands that are capable of colored output when
+  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+  ui = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold # line info
+  old = red # deletions
+  new = green # additions
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+
+[url "https://"]
+  insteadOf = git://

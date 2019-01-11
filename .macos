@@ -48,7 +48,7 @@ brew cask install alfred google-chrome firefox bettertouchtool bartender visual-
 echo "cloning dotfiles and replace existed"
 # remove previous version
 rm ~/.{bashrc,bash_profile,bash_prompt,exports,exports_user,aliases,aliases_user,functions,\
-gitignore,zshrc,oh-my-zsh/themes/malbino.zsh-theme}
+gitconfig,gitignore,zshrc,oh-my-zsh/themes/malbino.zsh-theme}
 
 git clone git@github.com:MichaelDanilov/dotfiles.git ~/dotfiles
 
@@ -65,6 +65,7 @@ ln -s ~/dotfiles/bash/.exports_user ~/.exports_user
 ln -s ~/dotfiles/bash/.aliases ~/.aliases
 ln -s ~/dotfiles/bash/.aliases_user ~/.aliases_user
 ln -s ~/dotfiles/bash/.functions ~/.functions
+ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/.gitignore ~/.gitignore
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/malbino.zsh-theme ~/.oh-my-zsh/themes/malbino.zsh-theme
