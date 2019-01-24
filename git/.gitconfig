@@ -1,6 +1,7 @@
 [user]
   name = Michael Danilov
   email = michael@danilov.me
+  signingKey = F29B5C23CA9C35809C256462E3CAE955107A5ACF
 
 [credential]
   helper = cache --timeout=3600
@@ -19,9 +20,9 @@
 [alias]
   co = checkout
   cob = checkout -b
-  ci = commit
-  cia = commit --amend
-  cim = commit -m
+  ci = commit -S 
+  cia = commit -S --amend
+  cim = commit -S -m
   fixup = commit -m "fixup"
   df = diff
   st = status --short

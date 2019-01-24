@@ -33,7 +33,7 @@ echo "installing homebrew"
 echo "brew installing stuff"
 # tree: really handy for listing out directories in text
 # bat: A cat(1) clone with syntax highlighting and Git integration.
-brew install git bash-completion tree bat
+brew install git bash-completion tree bat gpg
 
 echo "installing node (via nvm-install)"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
