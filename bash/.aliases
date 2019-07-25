@@ -85,3 +85,5 @@ alias reload="exec $SHELL -l"
 
 # Hosts
 alias hosts="subl /etc/hosts --add"
+
+alias gpgkeys="gpg --list-secret-keys --keyid-format LONG"

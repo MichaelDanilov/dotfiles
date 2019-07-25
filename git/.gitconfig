@@ -17,6 +17,9 @@
   ignorecase = true
   hideDotFiles = dotGitOnly
 
+[commit]
+	gpgsign = true
+
 [alias]
   co = checkout
   cob = checkout -b
