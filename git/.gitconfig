@@ -30,9 +30,9 @@
   df = diff
   st = status --short
   br = branch
-  hist = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph -n 10
-  histn = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph -n
-  histall = log --pretty=format:\"%h %ai | %d %s [%an | %ae]\" --graph --all
+  hist = log --pretty=format:\"%h %ai | %d %s [%an | %ae] %G? %GS\" --graph -n 10
+  histn = log --pretty=format:\"%h %ai | %d %s [%an | %ae] %G? %GS\" --graph -n
+  histall = log --pretty=format:\"%h %ai | %d %s [%an | %ae] %G? %GS\" --graph --all
   type = cat-file -t
   dump = cat-file -p
   unstage = reset HEAD
