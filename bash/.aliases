@@ -4,6 +4,9 @@ alias ...="cd ../.."
 alias -- -="cd -"
 alias cd~="cd ~"
 
+# cd to git root directory
+alias cdgr='cd "$(git root)"'
+
 # Applications
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias smerge="/Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge"
@@ -14,6 +17,7 @@ alias yadisk="cd ~/Yandex.Disk.localized"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
+alias dotfiles="cd ~/dotfiles"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -94,3 +98,6 @@ alias gpgkeys="gpg --list-secret-keys --keyid-format LONG"
 # curl time
 # https://blog.josephscott.org/2011/10/14/timing-details-with-curl/
 alias curltime="curl -w \"@$HOME/dotfiles/curl/curl-format.txt\" -s"
+
+# ¯\_(ツ)_/¯
+alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
