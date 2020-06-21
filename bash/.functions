@@ -41,11 +41,11 @@ function gitio() {
 function server() {
 	case $1 in
 		static )
-			python -m SimpleHTTPServer $2
+			python -m http.server $2
 			;;
 		static80 )
 			sleep 1 && open "http://localhost/" &
-			sudo python -m SimpleHTTPServer 80
+			sudo python -m http.server 80
 			;;
 		* )
 			error dave
