@@ -87,6 +87,6 @@ alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.
 alias reload="exec $SHELL -l"
 
 # Hosts
-alias hosts="subl /etc/hosts --add"
+alias hosts="sudo $EDITOR /etc/hosts"
 
 alias gpgkeys="gpg --list-secret-keys --keyid-format LONG"
