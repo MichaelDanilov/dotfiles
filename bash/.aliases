@@ -9,8 +9,8 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias smerge="/Applications/Sublime\ Merge.app/Contents/SharedSupport/bin/smerge"
 
 # Shortcuts
-alias dropbox="cd /Users/michael/Dropbox"
-alias yadisk="cd /Users/michael/Yandex.Disk.localized"
+alias dropbox="cd ~/Dropbox"
+alias yadisk="cd ~/Yandex.Disk.localized"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
