@@ -3,7 +3,7 @@
 # Modified by Michael Danilov (https://danilov.me)
 ### NVM
 
-ZSH_THEME_NVM_PROMPT_PREFIX="%B⬡%b "
+ZSH_THEME_NVM_PROMPT_PREFIX="%{$fg[cyan]%}⬡%{$reset_color%} "
 ZSH_THEME_NVM_PROMPT_SUFFIX=""
 
 ### Git [±master ▾●]
@@ -108,9 +108,9 @@ get_space () {
 }
 
 _1LEFT="$_USERNAME:$_PATH"
-_1RIGHT="[%*] "
 
 malbino_precmd () {
+  _1RIGHT="$(nvm_prompt_info) $(malbino_git_prompt) %{$fg[blue]%}[%*]%{$reset_color%}"
   _1SPACES=`get_space $_1LEFT $_1RIGHT`
   print
   print -rP "$_1LEFT$_1SPACES$_1RIGHT"
@@ -118,7 +118,6 @@ malbino_precmd () {
 
 setopt prompt_subst
 PROMPT='$_LIBERTY '
-RPROMPT='$(nvm_prompt_info) $(malbino_git_prompt)'
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd malbino_precmd
