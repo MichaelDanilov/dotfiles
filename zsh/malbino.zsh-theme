@@ -17,14 +17,61 @@ ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[yellow]%}●%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"
 
+is_arc () {
+  local _is_arc=$(\
+    (echo "$PWD" | grep "$HOME/Projects/arcadia" 2> /dev/null) || \
+    false \
+  )
+  echo $_is_arc
+}
+
 malbino_git_branch () {
+  IS_ARC=$(is_arc)
+  if [[ -n "$IS_ARC" ]]; then
+    # 0
+    # ref=$(command arc info --json | ya tool jq .branch)
+    # ref=$(command echo $ref | sed -e 's:\"::g')
+    # 1
+    # ref=$(command arc info --json | ya tool jq -r .branch)
+    # 2
+    ref=$(command arc info | grep "branch:" | sed -e 's:branch\: ::g')
+    # 3
+    # ref=$(command arc info | grep -o -Ee "branch: .*" | cut -d ' ' -f 2)
+    echo "arc:${ref}"
+    return
+  fi
+
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(command git rev-parse --short HEAD 2> /dev/null) || return
-  echo "${ref#refs/heads/}"
+  echo "git:${ref#refs/heads/}"
 }
 
 malbino_git_status() {
   _STATUS=""
+
+  IS_ARC=$(is_arc)
+  if [[ -n "$IS_ARC" ]]; then
+    # check status of files
+    _INDEX=$(command arc status --json | ya tool jq .status 2> /dev/null)
+    if [[ -n "$_INDEX" ]]; then
+      if [[ "${_INDEX}x" == "{}x" ]]; then
+        _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
+      else
+        if [[ "$(command echo $_INDEX | ya tool jq .staged)x" != "{}x" ]]; then
+          _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
+        else
+          if [[ "$(command echo $_INDEX | ya tool jq .changed)x" != "{}x" ]]; then
+            _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+          fi
+        fi
+      fi
+    else
+      _STATUS="$_STATUS$ZSH_THEME_GIT_PROMPT_CLEAN"
+    fi
+
+    echo $_STATUS
+    return
+  fi
 
   # check status of files
   _INDEX=$(command git status --porcelain 2> /dev/null)
@@ -120,4 +167,5 @@ setopt prompt_subst
 PROMPT='$_LIBERTY '
 
 autoload -U add-zsh-hook
+# autoload -U compinit; compinit
 add-zsh-hook precmd malbino_precmd
