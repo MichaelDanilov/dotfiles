@@ -11,7 +11,6 @@
   safecrlf = false
   repositoryformatversion = 0
   filemode = false
-  bare = false
   logallrefupdates = true
   symlinks = true
   ignorecase = true
@@ -43,6 +42,7 @@
   update-submodules = submodule update --init --recursive
   upgrade-submodules = submodule update --init --remote
   unstash = stash pop
+  unstashapply = stash apply
   mff = merge --no-ff
   root = rev-parse --show-toplevel
 
@@ -74,3 +74,6 @@
 
 [url "https://"]
   insteadOf = git://
+
+[pull]
+	rebase = false
