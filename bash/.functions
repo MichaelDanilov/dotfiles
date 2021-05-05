@@ -172,3 +172,22 @@ function error() {
 	esac
 }
 
+# Dead codes
+function groom_dead_code {
+	root="${2:-.}"
+	for entry in "$1"/*
+	do
+		name=$(basename $entry)
+		if [[ -z "$(grep -r "/$name'" $root)" ]]; then
+		echo "$entry is unused"
+		fi
+	done
+}
+
+# Dead dependencies
+function groom_dependencies {
+	key=${1:-dependencies}
+	for dep in $(cat package.json | jq -cr ".$key|keys|.[]");
+	do [[ -z "$(grep -r  --exclude-dir=node_modules "'${dep}" .)" ]] && echo "$dep appears unused";
+	done
+}

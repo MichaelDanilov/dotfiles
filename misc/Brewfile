@@ -1,0 +1,76 @@
+# https://github.com/driesvints/dotfiles/blob/master/Brewfile
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "iterate-ch/cyberduck"
+tap "jesseduffield/lazydocker"
+tap "jesseduffield/lazygit"
+tap "simeji/jid"
+brew "aria2"
+brew "autoconf", link: false
+brew "automake", link: false
+brew "bandwhich"
+brew "bash", link: false
+brew "bash-completion", link: false
+brew "bat"
+brew "boost", link: false
+brew "boost@1.55"
+brew "libpng", link: false
+brew "libffi"
+brew "ccat"
+brew "cmake", link: false
+brew "zeromq", link: false
+brew "czmq", link: false
+brew "flow", link: false
+brew "libtool", link: false
+brew "pango", link: false
+brew "python@2"
+brew "fontforge", link: false
+brew "python"
+brew "libxml2"
+brew "gdal", link: false
+brew "gdk-pixbuf", link: false
+brew "git"
+brew "git-flow"
+brew "libksba", link: false
+brew "gnupg", link: false
+brew "gpp", link: false
+brew "htop", link: false
+brew "httpie"
+brew "little-cms2", link: false
+brew "openjpeg"
+brew "imagemagick", link: false
+brew "jq"
+brew "lftp", link: false
+brew "libexif", link: false
+brew "liblwgeom"
+brew "libsodium", link: false
+brew "lzlib", link: false
+brew "mhash", link: false
+brew "mcrypt", link: false
+brew "ossp-uuid", link: false
+brew "putty"
+brew "py2cairo", link: false
+brew "pygobject3", link: false
+brew "qt"
+brew "redis", link: false
+brew "rust"
+brew "s3cmd"
+brew "sfcgal", link: false
+brew "tarantool"
+brew "telnet"
+brew "thefuck"
+brew "tldr"
+brew "tree"
+brew "ttfautohint", link: false
+brew "unixodbc", link: false
+brew "vim"
+brew "vips", link: false
+brew "wget"
+brew "yarn", link: false
+brew "youtube-dl"
+brew "iterate-ch/cyberduck/duck"
+brew "jesseduffield/lazygit/lazygit"
+brew "simeji/jid/jid"
+cask "anybar"
+cask "pennywise"
