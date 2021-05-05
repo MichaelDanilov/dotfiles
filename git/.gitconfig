@@ -21,6 +21,8 @@
 	gpgsign = true
 
 [alias]
+  # Discard duplicate leading “git” (e.g. “git git status”)
+  git = "!git"
   co = checkout
   cob = checkout -b
   ci = commit -S 
