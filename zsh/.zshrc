@@ -1,3 +1,5 @@
+fpath+=~/.zfunc
+
 export PATH="$HOME/bin:$PATH";
 
 # Path to your oh-my-zsh installation.
