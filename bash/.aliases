@@ -101,3 +101,8 @@ alias curltime="curl -w \"@$HOME/dotfiles/curl/curl-format.txt\" -s"
 
 # ¯\_(ツ)_/¯
 alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
+
+# HTTPie aliases
+alias GET='http'
+alias POST='http POST'
+alias HEAD='http HEAD'
