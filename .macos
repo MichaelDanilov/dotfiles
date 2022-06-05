@@ -22,6 +22,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "Hello $(whoami)! Let's get you set up."
 
+if [ -z "$HOME" ]; then
+  echo "Seems you're \$HOMEless :("; exit 1;
+fi
+
 echo "installing ohmyz"
 # install ohmyz https://ohmyz.sh/
 $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
