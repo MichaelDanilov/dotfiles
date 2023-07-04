@@ -69,6 +69,7 @@ ln -s ~/dotfiles/bash/.exports_user ~/.exports_user
 ln -s ~/dotfiles/bash/.aliases ~/.aliases
 ln -s ~/dotfiles/bash/.aliases_user ~/.aliases_user
 ln -s ~/dotfiles/bash/.functions ~/.functions
+ln -s ~/dotfiles/bash/.vimrc ~/.vimrc
 ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/.gitignore ~/.gitignore
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
