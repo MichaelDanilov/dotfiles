@@ -106,3 +106,5 @@ alias shrug="echo '¯\_(ツ)_/¯' | pbcopy"
 alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
+
+alias use="nvm use && pnpmuse"

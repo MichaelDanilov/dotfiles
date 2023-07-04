@@ -191,3 +191,18 @@ function groom_dependencies {
 	do [[ -z "$(grep -r  --exclude-dir=node_modules "'${dep}" .)" ]] && echo "$dep appears unused";
 	done
 }
+
+function getpackagemanager() {
+	echo $(cat ./package.json | jq '.packageManager' | sed -r 's/\"//g')
+}
+
+function pnpmuse() {
+	echo "'$(getpackagemanager)' will be install:"
+	npm install -g $(getpackagemanager)
+	echo "the current package manager is 'pnpm@$(pnpm --version)'"
+}
+
+function getPkgLatest() {
+	local version=$(npm info $1 --json | jq '.["dist-tags"].latest' | sed -r 's/\"//g')
+	echo "$1@$version"
+}
