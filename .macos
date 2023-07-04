@@ -28,7 +28,7 @@ fi
 
 echo "installing ohmyz"
 # install ohmyz https://ohmyz.sh/
-$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "installing homebrew"
 # install homebrew https://brew.sh
@@ -51,14 +51,15 @@ brew cask install alfred google-chrome firefox bettertouchtool bartender visual-
 
 echo "cloning dotfiles and replace existed"
 # remove previous version
-rm ~/.{bashrc,bash_profile,bash_prompt,exports,exports_user,aliases,aliases_user,functions,\
-gitconfig,gitignore,zshrc,oh-my-zsh/themes/malbino.zsh-theme,nvmrc}
+rm ~/.{bashrc,bash_profile,bash_prompt,exports,exports_user,aliases,aliases_user,functions,functions_user,\
+gitconfig,gitignore,zshrc,oh-my-zsh/themes/malbino.zsh-theme,nvmrc,vimrc}
 
 git clone git@github.com:MichaelDanilov/dotfiles.git ~/dotfiles
 
 # Create files with user private data
 touch ~/dotfiles/bash/.exports_user
 touch ~/dotfiles/bash/.aliases_user
+touch ~/dotfiles/bash/.functions_user
 
 # Link it to home directory
 ln -s ~/dotfiles/bash/.bashrc ~/.bashrc
@@ -69,6 +70,7 @@ ln -s ~/dotfiles/bash/.exports_user ~/.exports_user
 ln -s ~/dotfiles/bash/.aliases ~/.aliases
 ln -s ~/dotfiles/bash/.aliases_user ~/.aliases_user
 ln -s ~/dotfiles/bash/.functions ~/.functions
+ln -s ~/dotfiles/bash/.functions_user ~/.functions_user
 ln -s ~/dotfiles/bash/.vimrc ~/.vimrc
 ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/.gitignore ~/.gitignore

@@ -1,6 +1,7 @@
 fpath+=~/.zfunc
 
 export PATH="$HOME/bin:$PATH";
+export PATH="$HOME/.local/bin:$PATH";
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -23,3 +24,5 @@ for file in ~/.{exports,exports_user,aliases,aliases_user,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+gpgconf --launch gpg-agent
