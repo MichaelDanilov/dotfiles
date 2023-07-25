@@ -107,4 +107,4 @@ alias GET='http'
 alias POST='http POST'
 alias HEAD='http HEAD'
 
-alias use="nvm use && pnpmuse"
+alias use="nvm use && pmuse"
