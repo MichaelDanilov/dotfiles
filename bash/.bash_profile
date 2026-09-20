@@ -3,6 +3,8 @@ export PATH="$HOME/bin:$PATH";
 export PATH="$(brew --prefix)/bin:$PATH";
 export PATH="$HOME/.local/bin:$PATH";
 
+export GOPATH="$HOME/go";
+
 # Load the shell dotfiles, and then some:
 for file in ~/.{bash_prompt,exports,exports_user,aliases,aliases_user,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";

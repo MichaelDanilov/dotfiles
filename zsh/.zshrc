@@ -3,6 +3,8 @@ fpath+=~/.zfunc
 export PATH="$HOME/bin:$PATH";
 export PATH="$HOME/.local/bin:$PATH";
 
+export GOPATH="$HOME/go";
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
