@@ -6,7 +6,7 @@ export PATH="$HOME/.local/bin:$PATH";
 export GOPATH="$HOME/go";
 
 # Load the shell dotfiles, and then some:
-for file in ~/.{bash_prompt,exports,exports_user,aliases,aliases_user,functions}; do
+for file in ~/.{bash_prompt,exports,exports_user,aliases,aliases_user,functions,functions_user}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
