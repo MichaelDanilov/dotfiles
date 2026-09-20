@@ -1,7 +1,7 @@
 [user]
   name = Michael Danilov
   email = michael@danilov.me
-  signingKey = F29B5C23CA9C35809C256462E3CAE955107A5ACF
+  signingkey = 67BC5C8C4A9B9418
 
 [credential]
   helper = cache --timeout=3600
@@ -77,3 +77,6 @@
 
 [pull]
 	rebase = false
+
+[tag]
+	gpgSign = true
