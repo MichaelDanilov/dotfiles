@@ -77,3 +77,5 @@ ln -s ~/dotfiles/git/.gitignore ~/.gitignore
 ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/dotfiles/zsh/malbino.zsh-theme ~/.oh-my-zsh/themes/malbino.zsh-theme
 ln -s ~/dotfiles/misc/.nvmrc ~/.nvmrc
+mkdir -p ~/.config/ghostty
+ln -s ~/dotfiles/misc/ghostty ~/.config/ghostty/config
