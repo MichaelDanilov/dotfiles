@@ -79,3 +79,6 @@ ln -s ~/dotfiles/zsh/malbino.zsh-theme ~/.oh-my-zsh/themes/malbino.zsh-theme
 ln -s ~/dotfiles/misc/.nvmrc ~/.nvmrc
 mkdir -p ~/.config/ghostty
 ln -s ~/dotfiles/misc/ghostty ~/.config/ghostty/config
+
+# add dir for vim
+mkdir -p ./vim/backups ./vim/swaps ./vim/undo
