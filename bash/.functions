@@ -192,33 +192,6 @@ function groom_dependencies {
 	done
 }
 
-function getpackagemanager() {
-	echo $(cat ./package.json | jq '.packageManager' | sed -r 's/\"//g')
-}
-
-function pmuse() {
-	allowed_package_managers=(pnpm npm yarn)
-	package_manager=$(getpackagemanager)
-	is_valid=0
-	for pm in $allowed_package_managers; do
-		if [[ $package_manager == $pm@* ]]; then
-			is_valid=1
-		fi
-	done
-	if [ $is_valid -eq 0 ]; then
-		echo "Looks like your package manager '$package_manager' not allowed"
-		return 1
-	fi
-	echo "'$package_manager' will be install:"
-	npm install -g $(getpackagemanager)
-
-	echo 'current package managers are:'
-	for pm in $allowed_package_managers
-	do
-		echo "- $pm@$($pm --version)"
-	done
-}
-
 function getPkgLatest() {
 	local version=$(npm info $1 --json | jq '.["dist-tags"].latest' | sed -r 's/\"//g')
 	echo "$1@$version"
